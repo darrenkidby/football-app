@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Football</string>
+    <string name="app_name">Football App</string>
+    <string name="button_addFootballTeam">Add Team</string>
+    <string name="placeholder_teamName">Team Name</string>
 </resources>
