@@ -12,7 +12,7 @@
         android:theme="@style/Theme.Football"
         tools:targetApi="31">
         <activity
-            android:name=".FootballActivity"
+            android:name=".activities.FootballActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

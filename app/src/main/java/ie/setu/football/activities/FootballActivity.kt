@@ -1,14 +1,17 @@
-package ie.setu.football
+package ie.setu.football.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
+import ie.setu.football.R
 import ie.setu.football.databinding.ActivityFootballBinding
 import timber.log.Timber
 import timber.log.Timber.i
+import ie.setu.football.models.FootballModel
 
 class FootballActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFootballBinding
+    var football = FootballModel()
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -20,9 +23,9 @@ class FootballActivity : AppCompatActivity() {
         binding = ActivityFootballBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.addButton.setOnClickListener() {
-            val teamName = binding.teamName.text.toString()
-            if (teamName.isNotEmpty()) {
-                i("(Pressed Button) Added Team: $teamName")
+            football.name = binding.teamName.text.toString()
+            if (football.name.isNotEmpty()) {
+                i("(Pressed Button) Added Team: $football.name")
             }
             else {
                 Snackbar
