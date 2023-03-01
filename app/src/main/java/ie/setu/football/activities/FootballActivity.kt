@@ -11,7 +11,8 @@ import ie.setu.football.models.FootballModel
 
 class FootballActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFootballBinding
-    var football = FootballModel()
+    var footballTeam = FootballModel()
+    val footballTeams = ArrayList<FootballModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -23,9 +24,12 @@ class FootballActivity : AppCompatActivity() {
         binding = ActivityFootballBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.addButton.setOnClickListener() {
-            football.name = binding.teamName.text.toString()
-            if (football.name.isNotEmpty()) {
-                i("(Pressed Button) Added Team: $football.name")
+            footballTeam.name = binding.teamName.text.toString()
+            if (footballTeam.name.isNotEmpty()) {
+                footballTeams.add(footballTeam.copy())
+                i("(Pressed Button) Added Team: $footballTeam")
+                for (i in footballTeams.indices)
+                { i("Football[$i]:${this.footballTeams[i]}") }
             }
             else {
                 Snackbar
