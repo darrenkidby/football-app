@@ -24,8 +24,9 @@ class FootballActivity : AppCompatActivity() {
         binding = ActivityFootballBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.addButton.setOnClickListener() {
-            footballTeam.name = binding.teamName.text.toString()
-            if (footballTeam.name.isNotEmpty()) {
+            footballTeam.Name = binding.teamName.text.toString()
+            footballTeam.Country = binding.country.text.toString()
+            if (footballTeam.Name.isNotEmpty()) {
                 footballTeams.add(footballTeam.copy())
                 i("(Pressed Button) Added Team: $footballTeam")
                 for (i in footballTeams.indices)

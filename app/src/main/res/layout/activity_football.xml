@@ -54,6 +54,19 @@
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
+                <EditText
+                    android:id="@+id/country"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:hint="@string/placeholder_country"
+                    android:inputType="text"
+                    android:maxLength="25"
+                    android:maxLines="1"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
                 <Button
                     android:id="@+id/addButton"
                     android:layout_width="match_parent"
