@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import ie.setu.football.R
 import ie.setu.football.databinding.ActivityFootballBinding
+import ie.setu.football.main.MainApp
 import timber.log.Timber
 import timber.log.Timber.i
 import ie.setu.football.models.FootballModel
@@ -12,13 +13,13 @@ import ie.setu.football.models.FootballModel
 class FootballActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFootballBinding
     var footballTeam = FootballModel()
-    val footballTeams = ArrayList<FootballModel>()
+    lateinit var app : MainApp
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_football)
 
-        Timber.plant(Timber.DebugTree())
+        app = application as MainApp
         i("Football App started...")
 
         binding = ActivityFootballBinding.inflate(layoutInflater)
@@ -27,10 +28,10 @@ class FootballActivity : AppCompatActivity() {
             footballTeam.Name = binding.teamName.text.toString()
             footballTeam.Country = binding.country.text.toString()
             if (footballTeam.Name.isNotEmpty()) {
-                footballTeams.add(footballTeam.copy())
+                app.footballTeams.add(footballTeam.copy())
                 i("(Pressed Button) Added Team: $footballTeam")
-                for (i in footballTeams.indices)
-                { i("Football[$i]:${this.footballTeams[i]}") }
+                for (i in app.footballTeams.indices)
+                { i("Football[$i]:${this.app.footballTeams[i]}") }
             }
             else {
                 Snackbar
