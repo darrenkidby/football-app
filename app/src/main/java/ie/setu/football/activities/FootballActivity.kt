@@ -32,6 +32,8 @@ class FootballActivity : AppCompatActivity() {
                 i("(Pressed Button) Added Team: $footballTeam")
                 for (i in app.footballTeams.indices)
                 { i("Football[$i]:${this.app.footballTeams[i]}") }
+                setResult(RESULT_OK)
+                finish()
             }
             else {
                 Snackbar
