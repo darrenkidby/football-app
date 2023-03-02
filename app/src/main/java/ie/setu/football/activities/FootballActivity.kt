@@ -2,6 +2,8 @@ package ie.setu.football.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import com.google.android.material.snackbar.Snackbar
 import ie.setu.football.R
 import ie.setu.football.databinding.ActivityFootballBinding
@@ -24,6 +26,9 @@ class FootballActivity : AppCompatActivity() {
 
         binding = ActivityFootballBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.toolbarAdd.title = title
+        setSupportActionBar(binding.toolbarAdd)
         binding.addButton.setOnClickListener() {
             footballTeam.Name = binding.teamName.text.toString()
             footballTeam.Country = binding.country.text.toString()
@@ -41,5 +46,16 @@ class FootballActivity : AppCompatActivity() {
                     .show()
             }
         }
+    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.football_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.item_cancel -> { finish() }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
