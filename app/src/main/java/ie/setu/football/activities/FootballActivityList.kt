@@ -32,7 +32,8 @@ class FootballActivityList : AppCompatActivity() {
 
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
-        binding.recyclerView.adapter = FootballAdapter(app.footballTeams)
+        // binding.recyclerView.adapter = FootballAdapter(app.footballTeams)
+        binding.recyclerView.adapter = FootballAdapter(app.footballTeams.findAll())
 
         binding.toolbar.title = title
         setSupportActionBar(binding.toolbar)
@@ -54,7 +55,7 @@ class FootballActivityList : AppCompatActivity() {
         ) {
             if (it.resultCode == Activity.RESULT_OK) {
                 (binding.recyclerView.adapter)?.
-                notifyItemRangeChanged(0,app.footballTeams.size)
+                notifyItemRangeChanged(0,app.footballTeams.findAll().size)
             }
         }
 

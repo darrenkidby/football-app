@@ -33,10 +33,8 @@ class FootballActivity : AppCompatActivity() {
             footballTeam.Name = binding.teamName.text.toString()
             footballTeam.Country = binding.country.text.toString()
             if (footballTeam.Name.isNotEmpty()) {
-                app.footballTeams.add(footballTeam.copy())
-                i("(Pressed Button) Added Team: $footballTeam")
-                for (i in app.footballTeams.indices)
-                { i("Football[$i]:${this.app.footballTeams[i]}") }
+                // app.footballTeams.add(footballTeam.copy())
+                app.footballTeams.create(footballTeam.copy())
                 setResult(RESULT_OK)
                 finish()
             }
@@ -47,6 +45,7 @@ class FootballActivity : AppCompatActivity() {
             }
         }
     }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.football_menu, menu)
         return super.onCreateOptionsMenu(menu)
