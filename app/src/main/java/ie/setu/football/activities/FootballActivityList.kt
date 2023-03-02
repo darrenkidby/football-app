@@ -3,9 +3,11 @@ package ie.setu.football.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import ie.setu.football.R
 import ie.setu.football.databinding.ActivityFootballListBinding
 import ie.setu.football.databinding.CardFootballBinding
 import ie.setu.football.main.MainApp
@@ -26,7 +28,16 @@ class FootballActivityList : AppCompatActivity() {
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
         binding.recyclerView.adapter = FootballAdapter(app.footballTeams)
+
+        binding.toolbar.title = title
+        setSupportActionBar(binding.toolbar)
     }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
 }
 
 class FootballAdapter constructor(private var footballTeams: List<FootballModel>) :

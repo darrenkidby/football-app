@@ -3,4 +3,5 @@
     <string name="button_addFootballTeam">Add Team</string>
     <string name="placeholder_teamName">Team Name</string>
     <string name="placeholder_country">Team Country </string>
+    <string name="menu_addToFootball">Add</string>
 </resources>
