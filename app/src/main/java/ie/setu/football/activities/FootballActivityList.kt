@@ -12,6 +12,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ie.setu.football.R
+import ie.setu.football.adapters.FootballAdapter
 import ie.setu.football.databinding.ActivityFootballListBinding
 import ie.setu.football.databinding.CardFootballBinding
 import ie.setu.football.main.MainApp
@@ -62,31 +63,4 @@ class FootballActivityList : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-}
-
-class FootballAdapter constructor(private var footballTeams: List<FootballModel>) :
-    RecyclerView.Adapter<FootballAdapter.MainHolder>() {
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
-        val binding = CardFootballBinding
-            .inflate(LayoutInflater.from(parent.context), parent, false)
-
-        return MainHolder(binding)
-    }
-
-    override fun onBindViewHolder(holder: MainHolder, position: Int) {
-        val footballTeam = footballTeams[holder.adapterPosition]
-        holder.bind(footballTeam)
-    }
-
-    override fun getItemCount(): Int = footballTeams.size
-
-    class MainHolder(private val binding : CardFootballBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(footballTeam: FootballModel) {
-            binding.teamName.text = footballTeam.Name
-            binding.country.text = footballTeam.Country
-        }
-    }
 }
