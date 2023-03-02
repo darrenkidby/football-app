@@ -47,7 +47,7 @@ class FootballActivity : AppCompatActivity() {
             }
             else {
                 Snackbar
-                    .make(it,"Please Enter a Team Name", Snackbar.LENGTH_LONG)
+                    .make(it,R.string.enter_football_team_name, Snackbar.LENGTH_LONG)
                     .show()
             }
         }

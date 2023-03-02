@@ -5,4 +5,6 @@
     <string name="placeholder_country">Team Country </string>
     <string name="menu_addToFootball">Add</string>
     <string name="button_cancelAdd">Cancel</string>
+    <string name="enter_football_team_name"> Please enter a Football Teams Name </string>
+
 </resources>
