@@ -68,6 +68,7 @@ class FootballActivityList : AppCompatActivity(), FootballListener {
 
     override fun onFootballClick(footballTeam: FootballModel) {
         val launcherIntent = Intent(this, FootballActivity::class.java)
+        launcherIntent.putExtra("football_edit", footballTeam)
         getClickResult.launch(launcherIntent)
     }
 

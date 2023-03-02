@@ -29,6 +29,13 @@ class FootballActivity : AppCompatActivity() {
 
         binding.toolbarAdd.title = title
         setSupportActionBar(binding.toolbarAdd)
+
+        if (intent.hasExtra("football_edit")) {
+            footballTeam = intent.extras?.getParcelable("football_edit")!!
+            binding.teamName.setText(footballTeam.Name)
+            binding.country.setText(footballTeam.Country)
+        }
+
         binding.addButton.setOnClickListener() {
             footballTeam.Name = binding.teamName.text.toString()
             footballTeam.Country = binding.country.text.toString()
