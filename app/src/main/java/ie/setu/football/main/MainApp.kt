@@ -13,5 +13,8 @@ class MainApp : Application() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
         i("Football App started")
+        footballTeams.add(FootballModel("Manchester United", "England"))
+        footballTeams.add(FootballModel("Real Madrid", "Spain"))
+        footballTeams.add(FootballModel("Waterford FC", "Republic of Ireland"))
     }
 }
