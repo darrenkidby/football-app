@@ -19,10 +19,7 @@ class FootballActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_football)
-
-        app = application as MainApp
-        i("Football App started...")
+        var edit = false
 
         binding = ActivityFootballBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -30,26 +27,33 @@ class FootballActivity : AppCompatActivity() {
         binding.toolbarAdd.title = title
         setSupportActionBar(binding.toolbarAdd)
 
+        app = application as MainApp
+
         if (intent.hasExtra("football_edit")) {
+            edit = true
             footballTeam = intent.extras?.getParcelable("football_edit")!!
             binding.teamName.setText(footballTeam.Name)
             binding.country.setText(footballTeam.Country)
+            binding.addButton.setText(R.string.save_football_team)
         }
 
         binding.addButton.setOnClickListener() {
             footballTeam.Name = binding.teamName.text.toString()
             footballTeam.Country = binding.country.text.toString()
-            if (footballTeam.Name.isNotEmpty()) {
-                // app.footballTeams.add(footballTeam.copy())
-                app.footballTeams.create(footballTeam.copy())
-                setResult(RESULT_OK)
-                finish()
-            }
-            else {
+            if (footballTeam.Name.isEmpty()) {
                 Snackbar
                     .make(it,R.string.enter_football_team_name, Snackbar.LENGTH_LONG)
                     .show()
             }
+            else {
+                if (edit) {
+                    app.footballTeams.update(footballTeam.copy())
+                } else {
+                    app.footballTeams.create(footballTeam.copy())
+                }
+            }
+            setResult(RESULT_OK)
+            finish()
         }
     }
 
