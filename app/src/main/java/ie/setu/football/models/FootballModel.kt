@@ -4,5 +4,6 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class FootballModel(var Name: String = "",
+data class FootballModel(var id: Long = 0,
+                         var Name: String = "",
                          var Country: String = "") : Parcelable
