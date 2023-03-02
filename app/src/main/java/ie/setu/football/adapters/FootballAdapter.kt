@@ -6,7 +6,12 @@ import androidx.recyclerview.widget.RecyclerView
 import ie.setu.football.databinding.CardFootballBinding
 import ie.setu.football.models.FootballModel
 
-class FootballAdapter constructor(private var footballTeams: List<FootballModel>) :
+interface FootballListener {
+    fun onFootballClick(footballTeam: FootballModel)
+}
+
+class FootballAdapter constructor(private var footballTeams: List<FootballModel>,
+                                  private val listener: FootballListener) :
     RecyclerView.Adapter<FootballAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
@@ -17,7 +22,7 @@ class FootballAdapter constructor(private var footballTeams: List<FootballModel>
 
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
         val footballTeam = footballTeams[holder.adapterPosition]
-        holder.bind(footballTeam)
+        holder.bind(footballTeam, listener)
     }
 
     override fun getItemCount(): Int = footballTeams.size
@@ -25,9 +30,10 @@ class FootballAdapter constructor(private var footballTeams: List<FootballModel>
     class MainHolder(private val binding : CardFootballBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(footballTeam: FootballModel) {
+        fun bind(footballTeam: FootballModel, listener: FootballListener) {
             binding.teamName.text = footballTeam.Name
             binding.country.text = footballTeam.Country
+            binding.root.setOnClickListener { listener.onFootballClick(footballTeam) }
         }
     }
 }

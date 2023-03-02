@@ -13,12 +13,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ie.setu.football.R
 import ie.setu.football.adapters.FootballAdapter
+import ie.setu.football.adapters.FootballListener
 import ie.setu.football.databinding.ActivityFootballListBinding
 import ie.setu.football.databinding.CardFootballBinding
 import ie.setu.football.main.MainApp
 import ie.setu.football.models.FootballModel
 
-class FootballActivityList : AppCompatActivity() {
+class FootballActivityList : AppCompatActivity(), FootballListener {
 
     lateinit var app: MainApp
     private lateinit var binding: ActivityFootballListBinding
@@ -32,8 +33,9 @@ class FootballActivityList : AppCompatActivity() {
 
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
+
         // binding.recyclerView.adapter = FootballAdapter(app.footballTeams)
-        binding.recyclerView.adapter = FootballAdapter(app.footballTeams.findAll())
+        binding.recyclerView.adapter = FootballAdapter(app.footballTeams.findAll(),this)
 
         binding.toolbar.title = title
         setSupportActionBar(binding.toolbar)
@@ -64,4 +66,18 @@ class FootballActivityList : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
+    override fun onFootballClick(footballTeam: FootballModel) {
+        val launcherIntent = Intent(this, FootballActivity::class.java)
+        getClickResult.launch(launcherIntent)
+    }
+
+    private val getClickResult =
+        registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) {
+            if (it.resultCode == Activity.RESULT_OK) {
+                (binding.recyclerView.adapter)?.
+                notifyItemRangeChanged(0,app.footballTeams.findAll().size)
+            }
+        }
 }
