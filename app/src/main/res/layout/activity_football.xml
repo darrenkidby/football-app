@@ -25,13 +25,14 @@
                 android:id="@+id/toolbarAdd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:titleTextColor="@color/white" />
+                app:titleTextColor="@color/black" />
         </com.google.android.material.appbar.AppBarLayout>
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/appBarLayout"
+            android:background="@color/light_green"
             android:fillViewport="true">
 
             <LinearLayout
@@ -56,14 +57,27 @@
 
                 <EditText
                     android:id="@+id/country"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="375dp"
+                    android:layout_height="48dp"
                     android:layout_margin="8dp"
                     android:hint="@string/placeholder_country"
                     android:inputType="text"
                     android:maxLength="25"
                     android:maxLines="1"
-                    android:padding="15dp"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/trophies"
+                    android:layout_width="375dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="8dp"
+                    android:hint="@string/placeholder_trophy"
+                    android:inputType="number"
+                    android:maxLength="25"
+                    android:maxLines="1"
+                    android:padding="8dp"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -78,7 +92,7 @@
                     android:stateListAnimator="@null"
                     android:text="@string/button_addFootballTeam"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="25sp" />
 
             </LinearLayout>
         </ScrollView>

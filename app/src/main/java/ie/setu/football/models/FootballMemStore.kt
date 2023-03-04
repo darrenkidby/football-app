@@ -27,6 +27,7 @@ class FootballMemStore : FootballStore {
         if (foundFootball != null) {
             foundFootball.Name = footballTeam.Name
             foundFootball.Country = footballTeam.Country
+            foundFootball.Trophies = footballTeam.Trophies
             logAll()
         }
     }
