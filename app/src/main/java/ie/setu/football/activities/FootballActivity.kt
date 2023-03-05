@@ -41,6 +41,7 @@ class FootballActivity : AppCompatActivity() {
             footballTeam.Name = binding.teamName.text.toString()
             footballTeam.Country = binding.country.text.toString()
             footballTeam.Trophies = binding.trophies.text.toString().toInt()
+            footballTeam.WinPercentage = binding.winPercentage.text.toString().toDouble()
             if (footballTeam.Name.isEmpty()) {
                 Snackbar
                     .make(it,R.string.enter_football_team_name, Snackbar.LENGTH_LONG)

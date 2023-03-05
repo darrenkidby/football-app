@@ -34,6 +34,7 @@ class FootballAdapter constructor(private var footballTeams: List<FootballModel>
             binding.teamName.text = footballTeam.Name
             binding.country.text = footballTeam.Country
             binding.trophies.text = footballTeam.Trophies.toString()
+            binding.winPercentage.text = footballTeam.WinPercentage.toString()
             binding.root.setOnClickListener { listener.onFootballClick(footballTeam) }
         }
     }

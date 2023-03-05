@@ -84,6 +84,20 @@
                     android:background="@color/gold"
                     android:textSize="14sp" />
 
+                <EditText
+                    android:id="@+id/winPercentage"
+                    android:layout_width="375dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="8dp"
+                    android:hint="@string/placeholder_win_percentage"
+                    android:inputType="numberDecimal"
+                    android:maxLength="25"
+                    android:maxLines="1"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:background="@color/gold"
+                    android:textSize="14sp" />
+
                 <Button
                     android:id="@+id/addButton"
                     android:layout_width="match_parent"

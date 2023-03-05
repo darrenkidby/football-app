@@ -26,18 +26,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/teamName"
-            android:textSize="20sp"
+            android:textSize="25sp"
             tools:text="A Country" />
 
         <TextView
             android:id="@+id/trophies"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/teamName"
-            android:layout_marginStart="25dp"
-            android:layout_toRightOf="@id/country"
+            android:layout_below="@id/country"
             android:textSize="20sp"
             tools:text="A Trophy" />
+
+        <TextView
+            android:id="@+id/winPercentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/country"
+            android:layout_marginStart="25dp"
+            android:layout_toEndOf="@id/trophies"
+            android:textSize="20sp"
+            tools:text="Win Percentage in Decimal" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

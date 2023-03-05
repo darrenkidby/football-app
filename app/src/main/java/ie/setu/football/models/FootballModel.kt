@@ -7,4 +7,5 @@ import kotlinx.parcelize.Parcelize
 data class FootballModel(var id: Long = 0,
                          var Name: String = "",
                          var Country: String = "",
-                         var Trophies: Int = 0) : Parcelable
+                         var Trophies: Int = 0,
+                         var WinPercentage: Double = 0.0) : Parcelable

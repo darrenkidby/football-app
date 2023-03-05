@@ -28,6 +28,7 @@ class FootballMemStore : FootballStore {
             foundFootball.Name = footballTeam.Name
             foundFootball.Country = footballTeam.Country
             foundFootball.Trophies = footballTeam.Trophies
+            foundFootball.WinPercentage = footballTeam.WinPercentage
             logAll()
         }
     }
