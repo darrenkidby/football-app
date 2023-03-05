@@ -6,6 +6,9 @@
     <string name="placeholder_trophy">Team Trophies </string>
     <string name="menu_addToFootball">Add</string>
     <string name="button_cancelAdd">Cancel</string>
+    <string name="team_name_title">Team:</string>
+    <string name="country_title">Country:</string>
+    <string name="trophy_title">Trophies:</string>
     <string name="enter_football_team_name"> Please enter a Football Teams Name </string>
     <string name="save_football_team"> Save Football Team </string>
 </resources>

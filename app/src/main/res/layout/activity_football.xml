@@ -49,10 +49,11 @@
                     android:autofillHints="hint"
                     android:hint="@string/placeholder_teamName"
                     android:inputType="text"
-                    android:maxLength="25"
+                    android:maxLength="20"
                     android:maxLines="1"
                     android:padding="8dp"
                     android:textColor="@color/black"
+                    android:background="@color/gold"
                     android:textSize="14sp" />
 
                 <EditText
@@ -66,6 +67,7 @@
                     android:maxLines="1"
                     android:padding="8dp"
                     android:textColor="@color/black"
+                    android:background="@color/gold"
                     android:textSize="14sp" />
 
                 <EditText
@@ -79,6 +81,7 @@
                     android:maxLines="1"
                     android:padding="8dp"
                     android:textColor="@color/black"
+                    android:background="@color/gold"
                     android:textSize="14sp" />
 
                 <Button
